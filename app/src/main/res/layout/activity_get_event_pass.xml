@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".events.registration.GetEventPass">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/bgv_peaked_back_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:padding="40dp"
+        android:layout_above="@id/detail_text_box"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/eventpass_compress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/detail_text_box"
+        android:layout_above="@+id/bottom_btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/getpass_text_id"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text="Event Pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_below="@+id/getpass_text_id"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/benefit_text_id"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:text="Benefits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textAlignment="center"
+            android:layout_below="@+id/benefit_text_id"
+            android:text="\u25CF Access to all Corporate and fun events (Excluding Hackathon and Internship Fair)\n\u25CF Free pass of all workshops and speaker sessions.\n\u25CF Entertain yourself in the entertainment eve."
+            android:id="@+id/text_detail"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:padding="40dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:backgroundTint="@color/white"
+            android:layout_centerInParent="true"
+            android:id="@+id/event_pass_btn"
+            android:textAllCaps="false"
+            android:text="Pay \u20B9 150"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:visibility="gone"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/main_green"
+            android:layout_centerInParent="true"
+            android:id="@+id/done_pass_btn"
+            android:textAllCaps="false"
+            android:text="Done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

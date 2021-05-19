@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".notifications.Notifications">
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/back"
+            android:src="@drawable/ic_main_arrow_back_ios_new_24" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:text="Notifications"
+            android:layout_marginBottom="16dp"
+            android:textSize="32sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/no_new_notifications"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_main_notifications_off_24"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No New Notifications"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <com.ecell.end_eavour.customised.BucketRecyclerView
+        android:id="@+id/noti_rv"
+        android:layout_below="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".events.detail.Events_Detail"
+    android:background="@color/white">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/event_main_img"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:fontFamily="@font/nunito"
+                android:gravity="center_horizontal"
+                android:id="@+id/event_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_main_img"
+                android:layout_marginTop="10dp"
+                android:text="Event Name"
+                android:textColor="@color/main_color"
+                android:textSize="26sp">
+            </TextView>
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_desc_head"
+                android:layout_below="@+id/event_name"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Description"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_desc"
+                android:layout_below="@+id/event_desc_head"
+                android:layout_marginTop="5dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Description"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_benefits_head"
+                android:layout_below="@+id/event_desc"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Benefits"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_benefits"
+                android:layout_below="@+id/event_benefits_head"
+                android:layout_marginTop="5dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Benefits"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_structure_head"
+                android:layout_below="@+id/event_benefits"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Structure"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_below="@+id/event_structure_head"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_structure"
+                android:layout_marginTop="5dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Structure"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_rounds_head_main"
+                android:layout_below="@+id/event_structure"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Rounds"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@+id/event_rounds_head_main"
+                android:id="@+id/rv_event_detail_rounds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_rules_head"
+                android:layout_below="@+id/rv_event_detail_rounds"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Rules"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_below="@+id/event_rules_head"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/event_rules"
+                android:layout_marginTop="5dp"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:text="Rules"
+                android:textColor="@color/main_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/event_rules"
+                android:id="@+id/layout_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:indeterminateTintMode="src_atop"
+                    android:indeterminateTint="@color/main_color"
+                    android:id="@+id/progressbar"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:visibility="gone"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/main_color"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/register_btn"
+                    android:textAllCaps="false"
+                    android:text="Create Team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:visibility="gone"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/main_color"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/get_pass_btn"
+                    android:textAllCaps="false"
+                    android:text="Get Pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:visibility="gone"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/main_color"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/redirect_btn"
+                    android:textAllCaps="false"
+                    android:text="Register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:visibility="gone"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/main_green"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/paid_btn"
+                    android:textAllCaps="false"
+                    android:text="Paid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/layout_buttons"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/main_color"
+                android:layout_centerInParent="true"
+                android:id="@+id/faq_btn"
+                android:textAllCaps="false"
+                android:text="FAQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

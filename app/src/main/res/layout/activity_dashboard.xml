@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dashboard"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/bgv_peaked_back_grey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--( TOP STATUS BAR )-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:visibility="gone"
+            android:elevation="6dp"
+            android:id="@+id/image_power"
+            android:layout_width="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_height="48dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="2dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/power"/>
+
+        <ImageView
+            android:elevation="6dp"
+            android:id="@+id/image_power1"
+            android:layout_width="50dp"
+            android:layout_toEndOf="@id/image_power"
+            android:layout_height="48dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/kiet_logo"/>
+
+        <ImageView
+            android:elevation="6dp"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:layout_toEndOf="@id/image_power1"
+            android:paddingTop="10dp"
+            android:src="@drawable/tbi"/>
+
+        <ImageView
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/iv_notification_btn"
+            android:layout_width="60dp"
+            android:layout_height="48dp"
+            android:elevation="6dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/ecell" />
+
+        <ImageView
+            android:elevation="6dp"
+            android:id="@+id/iv_notification_btn"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_white_notifications_24"
+            android:layout_width="48dp"
+            android:layout_height="48dp"/>
+
+        <ImageView
+            android:id="@+id/notification_badge"
+            android:elevation="10dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/badge_notifications"
+            android:layout_marginStart="-30dp"
+            android:layout_alignTop="@+id/iv_notification_btn"
+            android:layout_toEndOf="@+id/iv_notification_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"/>
+
+    </RelativeLayout>
+
+    <!--( MAIN APP LOGO )-->
+    <ImageView
+        android:id="@+id/main_logo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:scaleType="fitXY"
+        android:layout_above="@id/layout_bottom_menu"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/endvr"/>
+
+    <!--( DASHBOARD MAIN TILES LAYOUT )-->
+    <LinearLayout
+        android:id="@+id/layout_bottom_menu"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:elevation="6dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_menu">
+
+        <!--( UPPER LINE )-->
+        <LinearLayout
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--( CARD ONE )-->
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/layout_events"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/bg_item01"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:src="@drawable/party_endvr"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Events"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="17sp"
+                            android:textColor="@color/main_color"
+                            android:layout_below="@id/events_img"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--( CARD TWO )-->
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/layout_shedule"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/bg_item01"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img1"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:src="@drawable/calendar_endvr"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Schedule"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="17sp"
+                            android:textColor="@color/main_color"
+                            android:layout_below="@id/events_img1"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--( CARD THREE )-->
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/layout_speakers"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/bg_item01"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img2"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:src="@drawable/employee_endvr"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Speakers"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="17sp"
+                            android:textColor="@color/main_color"
+                            android:layout_below="@id/events_img2"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--( LOWER LINE )-->
+        <LinearLayout
+            android:paddingBottom="10dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--( CARD FOUR )-->
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/layout_sponsors"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:elevation="6dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_item01"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img3"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:src="@drawable/sponsor_endvr"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sponsors"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="17sp"
+                            android:textColor="@color/main_color"
+                            android:layout_below="@id/events_img3"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--( CARD FIVE )-->
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:id="@+id/layout_ourteam"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/bg_item01"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img4"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:src="@drawable/team_endvr"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Team"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="17sp"
+                            android:textColor="@color/main_color"
+                            android:layout_below="@id/events_img4"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--( CARD SIX )-->
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/layout_contact"
+                    android:elevation="6dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_item01"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/events_img5"
+                            android:layout_width="68dp"
+                            android:layout_height="68dp"
+                            android:src="@drawable/mail_endvr"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contact Us"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="17sp"
+                            android:textColor="@color/main_color"
+                            android:layout_below="@id/events_img5"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

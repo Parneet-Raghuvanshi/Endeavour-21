@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#F44336</color>
+    <color name="main_color">#a13941</color>
+    <color name="grey">#808080</color>
+    <color name="main_grey">#202020</color>
+
+    <color name="transparent">#00ffffff</color>
+
+    //-- Snack Colors --//
+    (Success)
+    <color name="success_back">#DFF2BF</color>
+    <color name="success_text">#4F8A10</color>
+    (Fail)
+    <color name="failed_back">#FFBABA</color>
+    <color name="failed_text">#D8000C</color>
+    (Info)
+    <color name="info_text">#00529B</color>
+    <color name="info_back">#BDE5F8</color>
+    (Warn)
+    <color name="warn_text">#9F6000</color>
+    <color name="warn_back">#FEEFB3</color>
+    <color name="main_green">#4CAF50</color>
+    <color name="main_discord">#7289da</color>
+
+</resources>

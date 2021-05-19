@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center">
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="5dp"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/main_color"
+        app:contentPadding="1dp">
+
+        <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="4dp"
+            app:contentPadding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nunito"
+                    android:textSize="20sp"
+                    android:textColor="@color/main_color"
+                    android:text="Enter your Registered Email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_main_mail_24"
+                    app:startIconTint="@color/main_color"
+                    android:hint="Email"
+                    app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+                    app:endIconTint="@color/main_color"
+                    app:endIconMode="clear_text"
+                    android:textColorHint="@color/main_color"
+                    style="@style/Widget.App.TextInputLayoutMain">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:textCursorDrawable="@null"
+                        android:layout_width="match_parent"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/main_color"
+                        android:backgroundTint="@color/main_color"
+                        android:layout_height="wrap_content"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/main_color"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/continue_btn"
+                        android:textAllCaps="false"
+                        android:text="Continue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <ProgressBar
+                        android:indeterminateTintMode="src_atop"
+                        android:indeterminateTint="@color/main_color"
+                        android:visibility="gone"
+                        android:id="@+id/progressbar"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

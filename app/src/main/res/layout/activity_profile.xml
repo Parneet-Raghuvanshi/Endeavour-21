@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.Profile">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/bgv_peaked_back_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_above="@+id/input_fields"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/nunito"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="58sp"
+            android:textColor="@color/white"
+            android:text="Profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:id="@+id/input_fields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/college_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_account_balance_24"
+            app:startIconTint="@color/white"
+            android:hint="College Name"
+            app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+            app:endIconTint="@color/white"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/library_input"
+            android:layout_below="@+id/college_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_perm_identity_24"
+            app:startIconTint="@color/white"
+            android:hint="Library Id"
+            app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+            app:endIconTint="@color/white"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_below="@+id/library_input"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/branch_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_library_books_24"
+            app:startIconTint="@color/white"
+            app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+            app:endIconTint="@color/white"
+            app:endIconMode="clear_text"
+            android:hint="Branch"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/semester_input"
+            android:layout_below="@+id/branch_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_book_24"
+            app:startIconTint="@color/white"
+            android:hint="Semester"
+            app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+            app:endIconTint="@color/white"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/discordid_input"
+            android:layout_below="@+id/semester_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_disc_full_24"
+            app:startIconTint="@color/white"
+            android:hint="Discord Id"
+            app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+            app:endIconTint="@color/white"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/input_fields"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:backgroundTint="@color/white"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/continue_btn"
+            android:textAllCaps="false"
+            android:text="Continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

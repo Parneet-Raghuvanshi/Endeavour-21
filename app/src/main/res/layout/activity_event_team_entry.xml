@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".events.registration.EventTeamEntry">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/bgv_peaked_back_grey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_above="@+id/input_fields"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/activity_type"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/nunito"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:text="Add Team Members"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:id="@+id/input_fields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/leader_endvr_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_account_circle_24"
+            app:startIconTint="@color/white"
+            android:hint="Leader"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/member1_endvr_input"
+            android:layout_below="@+id/leader_endvr_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_account_circle_24"
+            app:startIconTint="@color/white"
+            android:hint="Member One"
+            app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+            app:endIconTint="@color/white"
+            app:endIconMode="clear_text"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_below="@+id/member1_endvr_input"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:id="@+id/member2_endvr_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_main_account_circle_24"
+            app:startIconTint="@color/white"
+            app:endIconDrawable="@drawable/ic_white_delete_forever_24"
+            app:endIconTint="@color/white"
+            app:endIconMode="clear_text"
+            android:hint="Member Two"
+            android:textColorHint="@color/white"
+            style="@style/Widget.App.TextInputLayoutWhite">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/input_fields"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:textColor="@color/main_grey"
+            android:backgroundTint="@color/white"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/continue_btn"
+            android:textAllCaps="false"
+            android:text="Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/main_green"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/done_btn"
+            android:textAllCaps="false"
+            android:text="Done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".team.Team">
+
+    <!--( TITLE BAR )-->
+    <RelativeLayout
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:id="@+id/back"
+            android:src="@drawable/ic_main_arrow_back_ios_new_24" />
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:text="Our Team"
+            android:textSize="32sp" />
+
+    </RelativeLayout>
+
+    <!--( RECYCLERVIEW LAYOUT )-->
+    <RelativeLayout
+        android:layout_below="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="60dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:padding="5dp"
+            android:clipToPadding="false"
+            android:id="@+id/recycler_view_teammain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="true"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </RelativeLayout>
+
+    <!--( BOTTOM FAB LAYOUT)-->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--( BOTTOM BAR )-->
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
+            android:layout_gravity="bottom"
+            android:backgroundTint="#302F2F"
+            app:fabAlignmentMode="end"
+            app:menu="@menu/app_bar_menu"
+            app:fabCradleRoundedCornerRadius="30dp"
+            app:fabCradleVerticalOffset="15dp"
+            app:fabCradleMargin="10dp"
+            app:hideOnScroll="true"
+            app:navigationIcon="@drawable/ic_menu"/>
+
+        <!--( TOOGLE FLOATING BUTTON )-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_white_add_24"
+            android:backgroundTint="@color/main_color"
+            app:layout_anchor="@id/bar"
+            app:maxImageSize="35dp"
+            android:id="@+id/fab_toogler"
+            android:clickable="true"
+            app:hideOnScroll="true"
+            android:tint="@color/white"/>
+
+        <!--( DEVELOPERS PANEL )-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#fff"
+            app:maxImageSize="38dp"
+            android:id="@+id/fab_developer"
+            app:layout_anchor="@id/bar"
+            android:layout_marginBottom="60dp"
+            app:fabSize="normal"
+            android:clickable="true"
+            android:src="@drawable/team_endvr"
+            tools:visibility="visible"
+            android:visibility="invisible"
+            android:layout_gravity="bottom|end"/>
+
+        <!--( ABOUT ENDEAVOUR PANEL )-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mail_endvr"
+            android:backgroundTint="#fff"
+            app:fabSize="normal"
+            app:maxImageSize="40dp"
+            tools:visibility="visible"
+            android:visibility="invisible"
+            android:layout_gravity="bottom|end"
+            app:layout_anchor="@id/bar"
+            app:layout_anchorGravity="end"
+            android:layout_marginBottom="60dp"
+            android:id="@+id/fab_endvr"
+            android:clickable="true"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>
