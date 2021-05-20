@@ -40,6 +40,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -176,6 +178,33 @@ public class Events_Detail extends Fragment {
         eventRules = view.findViewById(R.id.event_rules);
         eventId = bundle.getString("eventId");
 
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("eventsMain");
+        databaseReference.keepSynced(true);
+        databaseReference.orderByChild("eventId").equalTo(eventId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()){
+
+                    String eventNametemp = dataSnapshot1.child("eventName").getValue().toString();
+                    Log.i("String Event Name :: ",eventNametemp);
+
+                    List<EventsRound_Model> eventsRoundModels = new ArrayList<>();
+                    for (DataSnapshot dataSnapshotRound : dataSnapshot1.child("eventRounds").getChildren()){
+                        EventsRound_Model eventsRoundModel = dataSnapshotRound.getValue(EventsRound_Model.class);
+                        eventsRoundModels.add(eventsRoundModel);
+                    }
+                    adapter = new EventsRound_Adapter(eventsRoundModels);
+
+                    recyclerView.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         Glide.with(view).load(bundle.getString("eventImage")).into(eventImage);
         eventName.setText(bundle.getString("eventName"));//-----( \u2022  for small bullets )-----( \u25A0 for square box )----( \u25CF for bol bullets )----//
         eventDesc.setText(bundle.getString("eventDesc").replace("--","\n"));
@@ -196,10 +225,6 @@ public class Events_Detail extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
-        adapter = new EventsRound_Adapter(((MyApplication) getActivity().getApplication()).getEventsRoundModels());
-
-        recyclerView.setAdapter(adapter);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override

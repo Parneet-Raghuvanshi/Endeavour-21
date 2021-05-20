@@ -6,36 +6,11 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.ecell.end_eavour.events.detail.EventsRound_Model;
-import com.ecell.end_eavour.events.faq.EventsFaq_Model;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MyApplication extends Application {
 
     String userToken;
-
-    List<EventsFaq_Model> eventsFaqModels = new ArrayList<>();
-
-    public List<EventsFaq_Model> getEventsFaqModels() {
-        return eventsFaqModels;
-    }
-
-    public void setEventsFaqModels(List<EventsFaq_Model> eventsFaqModels) {
-        this.eventsFaqModels = eventsFaqModels;
-    }
-
-    List<EventsRound_Model> eventsRoundModels = new ArrayList<>();
-
-    public List<EventsRound_Model> getEventsRoundModels() {
-        return eventsRoundModels;
-    }
-
-    public void setEventsRoundModels(List<EventsRound_Model> eventsRoundModels) {
-        this.eventsRoundModels = eventsRoundModels;
-    }
 
     //---( Check Register Status )---//
 

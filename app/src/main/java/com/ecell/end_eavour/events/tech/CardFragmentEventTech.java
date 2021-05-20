@@ -19,18 +19,12 @@ import com.bumptech.glide.Glide;
 import com.ecell.end_eavour.R;
 import com.ecell.end_eavour.customised.CustomSnacks;
 import com.ecell.end_eavour.events.CardAdapterEvent;
-import com.ecell.end_eavour.events.detail.EventsRound_Model;
 import com.ecell.end_eavour.events.detail.Events_Detail;
-import com.ecell.end_eavour.events.faq.EventsFaq_Model;
-import com.ecell.end_eavour.services.MyApplication;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class CardFragmentEventTech extends Fragment {
@@ -92,20 +86,6 @@ public class CardFragmentEventTech extends Fragment {
                     bundle.putString("isOpen",dataSnapshot1.child("isOpen").getValue().toString());
                     eventId = dataSnapshot1.child("eventId").getValue().toString();
                     bundle.putString("eventType",dataSnapshot1.child("id").getValue().toString());
-
-                    List<EventsFaq_Model> eventsFaqModels = new ArrayList<>();
-                    for (DataSnapshot dataSnapshotFaq : dataSnapshot1.child("eventFaq").getChildren()){
-                        EventsFaq_Model eventsFaqModel = dataSnapshotFaq.getValue(EventsFaq_Model.class);
-                        eventsFaqModels.add(eventsFaqModel);
-                    }
-                    ((MyApplication) getActivity().getApplication()).setEventsFaqModels(eventsFaqModels);
-
-                    List<EventsRound_Model> eventsRoundModels = new ArrayList<>();
-                    for (DataSnapshot dataSnapshotRound : dataSnapshot1.child("eventRounds").getChildren()){
-                        EventsRound_Model eventsRoundModel = dataSnapshotRound.getValue(EventsRound_Model.class);
-                        eventsRoundModels.add(eventsRoundModel);
-                    }
-                    ((MyApplication) getActivity().getApplication()).setEventsRoundModels(eventsRoundModels);
 
                     eventName.setText(dataSnapshot1.child("eventName").getValue().toString());
                     eventDesc.setText(dataSnapshot1.child("eventDesc").getValue().toString().replace("--"," "));
