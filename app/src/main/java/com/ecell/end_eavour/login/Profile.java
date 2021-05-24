@@ -40,6 +40,7 @@ public class Profile extends AppCompatActivity {
     CustomLoadingDialog customLoadingDialog;
     CustomSnacks customSnacks;
     private long backPressedTime;
+    boolean profileUpdate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,26 @@ public class Profile extends AppCompatActivity {
         tilBranch = findViewById(R.id.branch_input);
         tilSemester = findViewById(R.id.semester_input);
         tilDiscord = findViewById(R.id.discordid_input);
+
+        if (((MyApplication) getApplication()).isProfileUpdateTrigger()){
+            profileUpdate = true;
+            View view = findViewById(android.R.id.content);
+            customSnacks.warnSnack(view,"Update your discord Id then Continue!");
+            ((MyApplication) getApplication()).setProfileUpdateTrigger(false);
+            tilBranch.getEditText().setText(((MyApplication) getApplication()).getBranch());
+            tilCollegeName.getEditText().setText(((MyApplication) getApplication()).getCollegeName());
+            tilLibraryId.getEditText().setText(((MyApplication) getApplication()).getLibraryId());
+            tilSemester.getEditText().setText(((MyApplication) getApplication()).getSemester());
+            tilDiscord.getEditText().setText(((MyApplication) getApplication()).getDiscord());
+            tilBranch.setEnabled(false);
+            tilBranch.setEndIconVisible(false);
+            tilCollegeName.setEnabled(false);
+            tilCollegeName.setEndIconVisible(false);
+            tilSemester.setEnabled(false);
+            tilSemester.setEndIconVisible(false);
+            tilLibraryId.setEnabled(false);
+            tilLibraryId.setEndIconVisible(false);
+        }
 
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +125,7 @@ public class Profile extends AppCompatActivity {
             return false;
         }
         else if (libraryId.isEmpty()) {
-            customSnacks.warnSnack(view,"University RollNo can't be Empty!");
+            customSnacks.warnSnack(view,"Library Id can't be Empty!");
             tilLibraryId.getEditText().requestFocus();
             return false;
         }
@@ -129,7 +150,7 @@ public class Profile extends AppCompatActivity {
             return false;
         }
         else if (!pattern.matcher(discordId).matches()){
-            customSnacks.warnSnack(view,"Discord ID Format Incorrect!");
+            customSnacks.warnSnack(view,"Discord ID Format Incorrect! Example - ( Username#1234 )");
             tilDiscord.getEditText().requestFocus();
             return false;
         }
@@ -205,7 +226,12 @@ public class Profile extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            finish();
+            if (profileUpdate){
+                super.onBackPressed();
+            }
+            else {
+                finish();
+            }
         } else {
             View view = findViewById(android.R.id.content);
             customSnacks.warnSnack(view,"Press back again to Exit!");

@@ -1,13 +1,10 @@
 package com.ecell.end_eavour.sponsors;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -18,18 +15,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.ecell.end_eavour.Dashboard;
 import com.ecell.end_eavour.R;
 import com.ecell.end_eavour.fab.BottomSheetNavigationFragment;
 import com.ecell.end_eavour.fab.BottomSheetNavigationFragmentOne;
 import com.ecell.end_eavour.fab.BottomSheetNavigationFragmentTwo;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Sponsors extends AppCompatActivity {
 
@@ -38,8 +38,7 @@ public class Sponsors extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private DatabaseReference databaseReference;
-    private FirebaseRecyclerOptions<Sponsors_Model> options;
-    private FirebaseRecyclerAdapter<Sponsors_Model,Sponsors_Viewholder> adapter;
+    private SponsorsMain_Adapter sponsorsMainAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,37 +62,37 @@ public class Sponsors extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("sponsors");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("sponsorsMain");
         databaseReference.keepSynced(true);
-
-        options = new FirebaseRecyclerOptions.Builder<Sponsors_Model>().setQuery(databaseReference,Sponsors_Model.class).build();
-
-        adapter = new FirebaseRecyclerAdapter<Sponsors_Model, Sponsors_Viewholder>(options) {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            protected void onBindViewHolder(@NonNull Sponsors_Viewholder holder, int position, @NonNull Sponsors_Model model) {
-                holder.sponsort.setText(model.getSponsorName());
-                holder.sponsorC.setText(model.getSponsorCategory());
-                Glide.with(getApplicationContext()).load(model.getImageSponsor()).into(holder.sponsorImage);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<SponsorsMain_Model> sponsorsMainModels = new ArrayList<>();
+                for (DataSnapshot dataSnapshot2 : snapshot.getChildren()){
+                    String name = dataSnapshot2.child("name").getValue(String.class);
+                    DataSnapshot dataSnapshot21 = dataSnapshot2.child("content");
 
-                holder.layoutSponsorCard.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Uri uri = Uri.parse(model.getSponsorLink());
-                        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                        startActivity(intent);
+                    List<Sponsors_Model> sponsorsModels = new ArrayList<>();
+                    for (DataSnapshot dataSnapshot22 : dataSnapshot21.getChildren()){
+                        String sponsorLink = dataSnapshot22.child("sponsorLink").getValue(String.class);
+                        String sponsorName = dataSnapshot22.child("sponsorName").getValue(String.class);
+                        String imageSponsor = dataSnapshot22.child("imageSponsor").getValue(String.class);
+
+                        sponsorsModels.add(new Sponsors_Model(sponsorName,imageSponsor,sponsorLink));
                     }
-                });
+
+                    sponsorsMainModels.add(new SponsorsMain_Model(name,sponsorsModels));
+                }
+
+                sponsorsMainAdapter = new SponsorsMain_Adapter(getApplicationContext(),sponsorsMainModels);
+                recyclerView.setAdapter(sponsorsMainAdapter);
             }
 
-            @NonNull
             @Override
-            public Sponsors_Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new Sponsors_Viewholder(LayoutInflater.from(Sponsors.this).inflate(R.layout.layout_sponsors,parent,false));
-            }
-        };
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        recyclerView.setAdapter(adapter);
-        adapter.startListening();
+            }
+        });
     }
 
     /**

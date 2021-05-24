@@ -12,7 +12,14 @@ public class MyApplication extends Application {
 
     String userToken;
 
-    //---( Check Register Status )---//
+    //---( Profile Update Trigger )---//
+    boolean profileUpdateTrigger = false;
+    public boolean isProfileUpdateTrigger() {
+        return profileUpdateTrigger;
+    }
+    public void setProfileUpdateTrigger(boolean profileUpdateTrigger) {
+        this.profileUpdateTrigger = profileUpdateTrigger;
+    }
 
     //---( Get Event ID Temp )---//
     String tempEventId = "";
@@ -102,12 +109,47 @@ public class MyApplication extends Application {
     public String userPhoneNumber;
     public String userEndvrId;
     public String userId;
+    public String libraryId;
+    public String branch;
+    public String semester;
+    public String collegeName;
+    public String discord;
 
     public MyApplication() {
     }
 
     //---( User Schema Getter and Setter )---//
 
+    public String getDiscord() {
+        return discord;
+    }
+    public void setDiscord(String discord) {
+        this.discord = discord;
+    }
+    public String getLibraryId() {
+        return libraryId;
+    }
+    public void setLibraryId(String libraryId) {
+        this.libraryId = libraryId;
+    }
+    public String getBranch() {
+        return branch;
+    }
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+    public String getSemester() {
+        return semester;
+    }
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+    public String getCollegeName() {
+        return collegeName;
+    }
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
+    }
     public String getUserId() {
         return userId;
     }

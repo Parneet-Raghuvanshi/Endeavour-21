@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             app:startIconDrawable="@drawable/ic_main_disc_full_24"
             app:startIconTint="@color/white"
-            android:hint="Discord Id"
+            android:hint="Discord Id ( Username#1234 )"
             app:endIconDrawable="@drawable/ic_white_delete_forever_24"
             app:endIconTint="@color/white"
             app:endIconMode="clear_text"

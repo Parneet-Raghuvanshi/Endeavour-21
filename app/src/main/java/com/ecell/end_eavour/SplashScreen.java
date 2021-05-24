@@ -93,6 +93,11 @@ public class SplashScreen extends AppCompatActivity {
                             ((MyApplication) getApplication()).setUserPhoneNumber(jsonObject.optString("phoneNumber"));
                             ((MyApplication) getApplication()).setUserEndvrId(jsonObject.optString("endvrid"));
                             ((MyApplication) getApplication()).setUserId(jsonObject.optString("_id"));
+                            ((MyApplication) getApplication()).setBranch(jsonObject.optString("branch"));
+                            ((MyApplication) getApplication()).setCollegeName(jsonObject.optString("college"));
+                            ((MyApplication) getApplication()).setLibraryId(jsonObject.optString("libId"));
+                            ((MyApplication) getApplication()).setSemester(jsonObject.optString("semester"));
+                            ((MyApplication) getApplication()).setDiscord(jsonObject.optString("discord"));
                             ((MyApplication) getApplication()).setLoginExpired(false);
                             ((MyApplication) getApplication()).setUserToken(token);
 

@@ -110,6 +110,9 @@ public class CardFragmentEventTech extends Fragment {
                     getActivity().findViewById(R.id.event_detail_container).setVisibility(View.VISIBLE);
                     getActivity().findViewById(R.id.layout_events_catalog).setVisibility(View.GONE);
                 }
+                else {
+                    customSnacks.infoSnack(view,"Registrations not open, Try again after some time!");
+                }
             }
         });
 

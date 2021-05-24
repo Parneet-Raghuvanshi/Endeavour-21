@@ -81,6 +81,23 @@
                 android:textSize="15sp"
                 android:textStyle="bold"/>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_centerInParent="true"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/main_color"
+                    android:id="@+id/editprofile_btn"
+                    android:textAllCaps="false"
+                    android:text="Edit Profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

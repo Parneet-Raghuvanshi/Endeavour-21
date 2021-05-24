@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.ecell.end_eavour.R;
 import com.ecell.end_eavour.contactus.Contactus;
 import com.ecell.end_eavour.events.Events;
+import com.ecell.end_eavour.login.Profile;
 import com.ecell.end_eavour.schedule.Schedule;
 import com.ecell.end_eavour.services.MyApplication;
 import com.ecell.end_eavour.speakers.Speakers;
@@ -23,6 +25,8 @@ import com.ecell.end_eavour.team.Team;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.navigation.NavigationView;
+
+import org.w3c.dom.Text;
 
 public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
 
@@ -66,6 +70,7 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         final TextView name  = (TextView)contentView.findViewById(R.id.tv_name_models);
         final TextView phno = (TextView)contentView.findViewById(R.id.user_phno);
         final TextView referid = (TextView)contentView.findViewById(R.id.user_refer_id);
+        final Button editProfileBtn = (Button)contentView.findViewById(R.id.editprofile_btn);
 
         NavigationView navigationView = contentView.findViewById(R.id.navigation_view);
 
@@ -82,6 +87,14 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         name.setText(((MyApplication) getActivity().getApplication()).getUserName());
         phno.setText(((MyApplication) getActivity().getApplication()).getUserPhoneNumber());
         referid.setText(((MyApplication) getActivity().getApplication()).getUserEndvrId());
+        editProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MyApplication) getActivity().getApplication()).setProfileUpdateTrigger(true);
+                Intent intent = new Intent(getActivity(), Profile.class);
+                startActivity(intent);
+            }
+        });
 
         ///-----------------------------------------------------------------//////
 
