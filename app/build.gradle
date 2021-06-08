@@ -10,8 +10,8 @@ android {
         applicationId "com.ecell.end_eavour"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.3"
+        versionCode 5
+        versionName "1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -70,6 +70,8 @@ dependencies {
 
     //---( Multi Dex )---//
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

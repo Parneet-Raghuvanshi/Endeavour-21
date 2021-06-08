@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ import com.ecell.end_eavour.R;
 import com.ecell.end_eavour.customised.CustomSnacks;
 import com.ecell.end_eavour.events.corp.CardFragmentPagerAdapterEventEventCorp;
 import com.ecell.end_eavour.events.fun.CardFragmentPagerAdapterEventEventFun;
+import com.ecell.end_eavour.events.humor.Voting;
 import com.ecell.end_eavour.events.registration.GetEventPass;
 import com.ecell.end_eavour.events.tech.CardFragmentPagerAdapterEventEventTech;
 import com.ecell.end_eavour.fab.BottomSheetNavigationFragment;
@@ -62,7 +64,8 @@ public class Events extends AppCompatActivity implements PaymentResultWithDataLi
     FrameLayout eventDetailContainer;
     NestedScrollView eventCatalog;
     CustomSnacks customSnacks;
-    CardView getPassCard,passActivated,discordBtn;
+    CardView getPassCard,passActivated,discordBtn,votingBtn;
+    RelativeLayout centerPoint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +86,13 @@ public class Events extends AppCompatActivity implements PaymentResultWithDataLi
         passActivated.setVisibility(View.GONE);
         discordBtn = findViewById(R.id.discord_btn);
         customSnacks = new CustomSnacks();
+        centerPoint = findViewById(R.id.center_point);
+        centerPoint.setVisibility(View.GONE);
+        votingBtn = findViewById(R.id.voting_btn);
+        votingBtn.setVisibility(View.GONE);
 
         checkPassAvaliability();
+        checkVotingStatus();
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +116,15 @@ public class Events extends AppCompatActivity implements PaymentResultWithDataLi
                 Uri uri = Uri.parse("https://discord.com/invite/KwSKQb62Hv");
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 startActivity(intent);
+            }
+        });
+
+        votingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Events.this, Voting.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -182,6 +199,47 @@ public class Events extends AppCompatActivity implements PaymentResultWithDataLi
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    //----( Voting Status )----//
+    private void checkVotingStatus() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("VotingControl");
+        databaseReference.keepSynced(true);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.getValue()!=null){
+                    for (DataSnapshot dataSnapshot2 : snapshot.getChildren()){
+                        String value = dataSnapshot2.getValue(String.class);
+
+                        if (value.equals("open")){
+                            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("VoteStatus");
+                            databaseReference1.keepSynced(true);
+                            databaseReference1.orderByChild("userId").equalTo(((MyApplication) getApplication()).getUserId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (snapshot.getValue() == null){
+                                        //---( Voting Available )---//
+                                        centerPoint.setVisibility(View.VISIBLE);
+                                        votingBtn.setVisibility(View.VISIBLE);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });

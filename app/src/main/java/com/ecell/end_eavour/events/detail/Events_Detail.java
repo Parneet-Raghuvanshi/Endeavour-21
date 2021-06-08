@@ -55,10 +55,10 @@ public class Events_Detail extends Fragment {
     ImageView eventImage;
     String eventId;
     Button eventFaq;
-    TextView eventName,eventDesc,eventBenefits,eventStructure,eventRules;
+    TextView eventName,eventDesc,eventBenefits,eventStructure,eventRules,downloadPortalBtn;
     RecyclerView recyclerView;
     EventsRound_Adapter adapter;
-    Button registerBtn,getPassBtn,redirectBtn,paidBtn;
+    Button registerBtn,getPassBtn,redirectBtn,paidBtn,ragsBtn;
     CustomSnacks customSnacks;
     ProgressBar progressBar;
     String teamType = "REG";
@@ -90,6 +90,9 @@ public class Events_Detail extends Fragment {
         redirectBtn.setVisibility(View.GONE);
         getPassBtn.setVisibility(View.GONE);
         registerBtn.setVisibility(View.GONE);
+        ragsBtn = view.findViewById(R.id.rags_btn);
+        ragsBtn.setVisibility(View.GONE);
+        downloadPortalBtn = view.findViewById(R.id.download_portal_btn);
 
         final Bundle bundle = getArguments();
         eventType = bundle.getString("eventType");
@@ -120,6 +123,7 @@ public class Events_Detail extends Fragment {
                 progressBar.setVisibility(View.GONE);
             }
             if (eventType.equals("TECH1")){
+                downloadPortalBtn.setVisibility(View.VISIBLE);
                 checkInternShipStatus();
             }
         }
@@ -242,6 +246,23 @@ public class Events_Detail extends Fragment {
                 getActivity().finish();
             }
         });
+
+        downloadPortalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.ecell.internshipfairendeavour");
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
+            }
+        });
+
+        /*ragsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), StartAuction.class);
+                startActivity(intent);
+            }
+        });*/
 
         return view;
     }

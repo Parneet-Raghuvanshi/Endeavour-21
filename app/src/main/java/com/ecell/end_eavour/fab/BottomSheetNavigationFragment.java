@@ -26,8 +26,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.navigation.NavigationView;
 
-import org.w3c.dom.Text;
-
 public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
 
     public static BottomSheetNavigationFragment newInstance() {

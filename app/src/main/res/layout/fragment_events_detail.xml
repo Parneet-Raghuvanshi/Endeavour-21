@@ -229,9 +229,23 @@
             </RelativeLayout>
 
             <Button
-                android:layout_marginBottom="10dp"
+                android:visibility="gone"
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/layout_buttons"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/main_color"
+                android:layout_centerInParent="true"
+                android:id="@+id/rags_btn"
+                android:textAllCaps="false"
+                android:text="Auction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/rags_btn"
                 android:textSize="18sp"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/main_color"
@@ -239,6 +253,20 @@
                 android:id="@+id/faq_btn"
                 android:textAllCaps="false"
                 android:text="FAQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/download_portal_btn"
+                android:textStyle="bold"
+                android:fontFamily="@font/nunito"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/faq_btn"
+                android:textColor="@color/main_color"
+                android:text="Download Internship-Fair Portal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
